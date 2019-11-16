@@ -24,7 +24,7 @@ class Review(models.Model):
     product = models.ForeignKey('Product', on_delete=models.CASCADE, null=False, blank=False, verbose_name='Project',
                                 related_name='reviews')
     text = models.TextField(max_length=2000, null=False, blank=False, verbose_name='Text')
-    rating = models.IntegerField(null=False, blank=False, validators=[MinValueValidator(0), MaxValueValidator(1)],
+    rating = models.IntegerField(null=False, blank=False, validators=[MinValueValidator(0), MaxValueValidator(5)],
                                  verbose_name='rating')
 
     def __str__(self):

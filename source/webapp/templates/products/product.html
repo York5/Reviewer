@@ -4,21 +4,21 @@
 {#        {% if perms.webapp.project_delete %}#}
 {#             <li><a class="nav-link new_nav_btn" href="{% url 'webapp:project_delete' project.pk %}">Delete<span class="sr-only">(current)</span></a></li>#}
 {#        {% endif %}#}
-{#        {% if perms.webapp.project_update %}#}
-{#            <li> <a class="nav-link new_nav_btn" href="{% url 'webapp:project_update' project.pk %}">Edit<span class="sr-only">(current)</span></a></li>#}
-{#        {% endif %}#}
+        {% if perms.webapp.change_product %}
+            <li><a class="custom_nav_btn" href="{% url 'webapp:product_update' product.pk %}">Edit<span class="sr-only">(current)</span></a></li>
+        {% endif %}
 {% endblock %}
 {% block title %}{{ product.name }}{% endblock %}
 {% block content %}
     <div>
     <h1 class="main_header">{{ product.name }}</h1>
-    {% if product.image%}
-        <div class="avatar_pic">
+    {% if product.image %}
         <img src="{{ product.image.url }}" width="250" height="250" alt="product picture">
-        </div>
+    {% else %}
+        <img src="{% static "images/default-product.jpg" %}" width="250" height="250" alt="default product">
     {% endif %}
     <p><b>Product name:</b> {{ product.name }}</p>
-    <p><b>Category:</b> {{ product.category }}</p>
+    <p><b>Category:</b> {{ product.get_category_display}}</p>
     <p><br>{{ product.description|escape|linebreaks }}</p>
     </div>
     <hr>
@@ -26,9 +26,11 @@
     <div class="issue-list">
         {% for review in reviews %}
             <div class="issue">
-                <a class="card_header_link" href="{% url 'webapp:review_view' review.pk %}"><h3>{{ review.author }}</h3>
-                </a>
-                <div class="pre">{{ review.text }}</div>
+                <h4>{{ review.author.first_name }} {{ review.author.last_name }}</h4>
+                <p>Email: {{ review.author.email }}</p>
+                <div class="pre">{{ review.text }}
+                    <p>Product Rating: <b>{{ review.rating }}</b></p>
+                </div>
             </div>
         {% empty %}
             <p>Be the first one to leave a review!</p>
@@ -40,7 +42,7 @@
         {% endif %}
         <hr>
         {% if request.user.is_authenticated %}
-            <form action="" method="POST" id="add_review">
+            <form action="{% url "webapp:product_review_create" product.pk %}" method="POST" id="add_review">
                 {% include 'partial/form.html' with button_text='Add New Review' %}
             </form>
         {% endif %}
