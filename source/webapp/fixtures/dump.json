@@ -1,0 +1,312 @@
+[
+{
+  "model": "webapp.product",
+  "pk": 1,
+  "fields": {
+    "name": "Iphone 11",
+    "category": "electronics",
+    "description": "The iPhone 11 is a smartphone designed, developed and marketed by Apple Inc. It is the thirteenth generation lower-priced iPhone, succeeding the iPhone XR.",
+    "image": "product_pics/61jiZhpjLRL._SY450_.jpg"
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 2,
+  "fields": {
+    "name": "Wool Fedora",
+    "category": "clothing",
+    "description": "100% Wool. Imported Size Adjustable - medium best fits 55-57.5cm 21.6\\\"-22.6\\\"; large best fits 58-60cm 22.8\\\"-23.6\\\" 100% pure crushable wool - keep its shape,but a little on the soft side. Perfect for casual wear, great fedoras for concert and the like occasions. Stylish Fedora - provides a little bit of coverage from wind, rain, and cold. Unisex Styling - looks great on men and women.",
+    "image": "product_pics/fedora.jpg"
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 3,
+  "fields": {
+    "name": "Tesla Model X charger",
+    "category": "electronics",
+    "description": "The Mobile Connector is included as standard equipment with a new Tesla. It\\u2019s a compact bundle that can charge your car from different outlets at medium to low speeds. We recommend installing a Wall Connector at home and leaving the Tesla Mobile Connector in the trunk of the car as a backup option while traveling.",
+    "image": "product_pics/charger.jpg"
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 4,
+  "fields": {
+    "name": "Regular Saw",
+    "category": "household",
+    "description": "A saw is a tool consisting of a tough blade, wire, or chain with a hard toothed edge. It is used to cut through material, very often wood though sometimes metal or stone. The cut is made by placing the toothed edge against the material and moving it forcefully back and forth.",
+    "image": "product_pics/saw.jpg"
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 5,
+  "fields": {
+    "name": "Pizza Margarita",
+    "category": "food",
+    "description": "Pizza Margherita is a typical Neapolitan pizza, made with San Marzano tomatoes, mozzarella cheese, fresh basil, salt and extra-virgin olive oil. Traditionally, it is made with fior di latte rather than buffalo mozzarella",
+    "image": "product_pics/margarita.jpg"
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 6,
+  "fields": {
+    "name": "Man Blazer",
+    "category": "clothing",
+    "description": "INVICTUS Brown Slim Fit Single-Breasted Formal Blazer. Rs. 4499. CHILL WINSTON Men Black Slim Fit Double-Breasted Ethnic Bandhgala Blazer.",
+    "image": "product_pics/blazer.jpg"
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 8,
+  "fields": {
+    "name": "Test Product 1",
+    "category": "household",
+    "description": "Test description",
+    "image": ""
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$150000$I9lgCOeDbJYA$QexEmVO410PXt8KAelsg15LHEZm5WkRXImFkw9xy+CM=",
+    "last_login": "2019-11-16T12:30:50.274Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2019-11-16T05:28:32.738Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$150000$WdTFhtxIH0IU$Y3HFTLENqs/8xZ7OjLFMVnzWqICEib0nm1aHN0fb7kw=",
+    "last_login": "2019-11-16T12:57:52.084Z",
+    "is_superuser": false,
+    "username": "Tom",
+    "first_name": "Tom",
+    "last_name": "Bombadil",
+    "email": "tombombadill@mail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2019-11-16T09:05:11Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$150000$RiY3XXs180al$E7jRw+VwhvicAMGA2GhsWvJVtJStnEzcFpoLqbXOgoI=",
+    "last_login": "2019-11-16T13:04:36.607Z",
+    "is_superuser": false,
+    "username": "Bella",
+    "first_name": "Bella",
+    "last_name": "Swan",
+    "email": "bellaswan@mail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2019-11-16T09:16:06Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 4,
+  "fields": {
+    "password": "pbkdf2_sha256$150000$OMyAEYoBNfyf$Wu8bjxSsHfMwRsWEjdFB9ohU8nirdvCwJ/sE+l0dcHw=",
+    "last_login": "2019-11-16T13:06:52.964Z",
+    "is_superuser": false,
+    "username": "Bob",
+    "first_name": "Bob",
+    "last_name": "Fantastic",
+    "email": "fantasticbob@mail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2019-11-16T10:01:20Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 5,
+  "fields": {
+    "password": "pbkdf2_sha256$150000$gOsDLzRZyPlA$S6iEuOYYbzJCDgRUaZrfVvTLsEwMefn9k3b2l266tS4=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "Evan",
+    "first_name": "Evan",
+    "last_name": "Adams",
+    "email": "evanadams@mail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2019-11-16T10:04:48Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 6,
+  "fields": {
+    "password": "pbkdf2_sha256$150000$ItAphTzNXBpm$q7qM67pnLYI1fwJWANqcYpckB3PeELBJPqD3Y4OqAiM=",
+    "last_login": "2019-11-16T12:25:29.756Z",
+    "is_superuser": false,
+    "username": "Moderator",
+    "first_name": "Gary",
+    "last_name": "Cooper",
+    "email": "garycooper@mail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2019-11-16T12:24:10Z",
+    "groups": [
+      1
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "webapp.review",
+  "pk": 1,
+  "fields": {
+    "author": 2,
+    "product": 2,
+    "text": "Very good Fedora. I bought one for myself and my Mom.",
+    "rating": 5
+  }
+},
+{
+  "model": "webapp.review",
+  "pk": 2,
+  "fields": {
+    "author": 2,
+    "product": 2,
+    "text": "Another good hat",
+    "rating": 2
+  }
+},
+{
+  "model": "webapp.review",
+  "pk": 4,
+  "fields": {
+    "author": 1,
+    "product": 1,
+    "text": "Not very satisfied",
+    "rating": 3
+  }
+},
+{
+  "model": "webapp.review",
+  "pk": 5,
+  "fields": {
+    "author": 1,
+    "product": 3,
+    "text": "Mine doesn't work while charging!",
+    "rating": 1
+  }
+},
+{
+  "model": "webapp.review",
+  "pk": 6,
+  "fields": {
+    "author": 1,
+    "product": 4,
+    "text": "Just like in the movie 'Saw', very satisfied. Quite useful for disposing of bodies.",
+    "rating": 5
+  }
+},
+{
+  "model": "webapp.review",
+  "pk": 7,
+  "fields": {
+    "author": 1,
+    "product": 5,
+    "text": "Quite dry, but otherwise OK",
+    "rating": 4
+  }
+},
+{
+  "model": "webapp.review",
+  "pk": 8,
+  "fields": {
+    "author": 1,
+    "product": 6,
+    "text": "Doesn't fit my shoulders",
+    "rating": 3
+  }
+},
+{
+  "model": "webapp.review",
+  "pk": 9,
+  "fields": {
+    "author": 2,
+    "product": 1,
+    "text": "I like it!",
+    "rating": 5
+  }
+},
+{
+  "model": "webapp.review",
+  "pk": 10,
+  "fields": {
+    "author": 3,
+    "product": 1,
+    "text": "Too expensive!",
+    "rating": 3
+  }
+},
+{
+  "model": "webapp.review",
+  "pk": 11,
+  "fields": {
+    "author": 3,
+    "product": 2,
+    "text": "Very flimsy. Gave it to my Dad",
+    "rating": 3
+  }
+},
+{
+  "model": "webapp.review",
+  "pk": 12,
+  "fields": {
+    "author": 3,
+    "product": 3,
+    "text": "Wrong version from the one shown in a photo",
+    "rating": 3
+  }
+},
+{
+  "model": "webapp.review",
+  "pk": 13,
+  "fields": {
+    "author": 3,
+    "product": 4,
+    "text": "Good for chopping down trees",
+    "rating": 4
+  }
+},
+{
+  "model": "webapp.review",
+  "pk": 14,
+  "fields": {
+    "author": 3,
+    "product": 6,
+    "text": "Not the best quality",
+    "rating": 4
+  }
+}
+]

@@ -1,6 +1,7 @@
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 from django.contrib.auth.models import User
+from django.db.models import Avg
 
 OTHER = 'other'
 CATEGORY_CHOICES = [(OTHER, 'other'), ('clothing', 'Clothing'), ('electronics', 'Electronics'), ('food', 'Food'),
@@ -17,6 +18,10 @@ class Product(models.Model):
     def __str__(self):
         return self.name
 
+    def average(self):
+        average = self.reviews.aggregate(Avg('rating'))
+        return average['rating__avg']
+
 
 class Review(models.Model):
     author = models.ForeignKey(User, null=True, blank=False, default=None, verbose_name='Author',
@@ -29,3 +34,4 @@ class Review(models.Model):
 
     def __str__(self):
         return 'Review of {} by {}'.format(self.product, self.author)
+

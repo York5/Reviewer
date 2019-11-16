@@ -33,7 +33,9 @@
                     <div class="card-body d-flex flex-column">
                         <a class="card_header_link" href="{% url 'webapp:product_view' product.pk %}"><h5
                                 class="card-title card_names">{{ product.name }}</h5></a>
-                        <h6 class="card-subtitle mb-2">Category: <b>{{ product.category}}</h6></b>
+                        <h6 class="card-subtitle mb-2">Category: <b>{{ product.category}}</b></h6>
+                        <h6 class="card-subtitle mb-2">Average Rating: <b>{{ product.average}}</b></h6>
+
                         <hr>
                         <p class="card-text">{{ product.description }}</p>
                         <div class="card_links mt-auto row justify-content-center">

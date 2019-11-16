@@ -30,17 +30,15 @@ class ReviewForProductCreateView(CreateView):
         return get_object_or_404(Product, pk=product_pk)
 
 
-class ReviewUpdateView(PermissionRequiredMixin, UpdateView):
+class ReviewUpdateView(UserPassesTestMixin, UpdateView):
     model = Review
     template_name = 'reviews/update.html'
     form_class = ProductReviewForm
     context_object_name = 'review'
-    permission_required = 'webapp.change_review'
-    permission_denied_message = '403 Access Denied!'
 
     def test_func(self):
         self.object= self.get_review()
-        return self.request.user.has_perm('accounts.changer_review') or self.request.user.pk == self.object.author.pk
+        return self.request.user.has_perm('webapp.change_review') or self.request.user.pk == self.object.author.pk
 
     def get_review(self):
         review_pk = self.kwargs.get('pk')
