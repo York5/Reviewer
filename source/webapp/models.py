@@ -19,7 +19,7 @@ class Product(models.Model):
 
 
 class Review(models.Model):
-    author = models.ForeignKey(User, null=False, blank=False, default=None, verbose_name='Author',
+    author = models.ForeignKey(User, null=True, blank=False, default=None, verbose_name='Author',
                                on_delete=models.CASCADE, related_name='reviews')
     product = models.ForeignKey('Product', on_delete=models.CASCADE, null=False, blank=False, verbose_name='Project',
                                 related_name='reviews')

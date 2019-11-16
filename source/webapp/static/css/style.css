@@ -1,48 +1,13 @@
-/*body {*/
-/*    font-family: Arial, sans-serif;*/
-/*}*/
 body {
-  font-family: Arial, sans-serif;
-  height: 4000px;
-  margin: 0px;
-  padding: 0px;
+    font-family: Arial, sans-serif;
 }
-
-.footer {
-  background: black;
-  width: 100%;
-  height: 0px;
-  position: fixed;
-  z-index: 300;
-  bottom: 0;
-  overflow: none;
-  color: white;
-  text-align: center;
-  font-size: 30px;
-  line-height: 80px;
-
-  -moz-transition: all 0.5s ease-in-out;
-  -o-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
-  -webkit-transition: all 0.5s ease-in-out;
-}
-
-.footer.show {
-  height: 80px;
-
-  -moz-transition: all 0.5s ease-in-out;
-  -o-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
-  -webkit-transition: all 0.5s ease-in-out;
-}
-
-
 .custom_nav {
-    background-color:  #212529;
+    background-color:  #001a33;
 }
-.new_review_btn{
+.custom_nav_btn{
     font-size: 20px;
     margin-left: 20px;
+    color: white;
 }
 .new_nav_btn {
     color: white;
@@ -119,7 +84,7 @@ body {
     margin-top: 30px
 }
 .my_footer {
-    background-color: #212529;
+    background-color: #001a33;
     color: white;
     margin-top: 100px;
 }
@@ -190,3 +155,6 @@ body {
 .edit_team {
     display: inline;
 }
+
+
+

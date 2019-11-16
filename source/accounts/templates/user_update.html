@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}Personal Profile{% endblock %}
+{% block menu %}
+        {% if user_obj == request.user %}
+            <a class="custom_nav_btn" href="{% url 'accounts:user_detail' user_obj.pk %}">View<span class="sr-only">(current)</span></a>
+            <a class="custom_nav_btn" href="{% url 'accounts:user_change_password' user_obj.pk %}">Change Password<span class="sr-only">(current)</span></a>
+        {% endif %}
+{% endblock %}
+{% block content %}
+    <h1 class="main_header">Edit Profile {{ user_obj.username }}</h1>
+    <div class="form_container">
+         <form action="{% url 'accounts:user_update' user_obj.pk %}" method="post" enctype="multipart/form-data">
+            {% include 'partial/form.html' with button_text="Update" %}
+         </form>
+    </div>
+{% endblock %}

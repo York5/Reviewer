@@ -15,3 +15,7 @@ class ProductAdmin(admin.ModelAdmin):
     search_fields = ['name', 'description']
     exclude = []
     inlines = [ReviewAdmin]
+
+
+admin.site.register(Product, ProductAdmin)
+admin.site.register(Review)

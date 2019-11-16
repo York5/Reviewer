@@ -14,30 +14,71 @@
     {% block styles %}{% endblock %}
 </head>
 <body>
-{% block menu %}{% endblock %}
+    <nav class="navbar custom_nav navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="{% url 'webapp:index' %}">Home</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                {% block menu %}{% endblock %}
+            </ul>
+        </div>
+    </nav>
 <div class="container">
     {% block content %}{% endblock %}
 </div>
 {% block footer %}
-    <div class="footer">
-        Some Text for my Footer!
-    </div><!-- CLOSE FOOTER -->
+    <footer class="page-footer my_footer font-small stylish-color-dark pt-4">
+        <div class="container text-center text-md-left">
+            <div class="row">
+                <hr class="clearfix w-100 d-md-none">
+                <div class="col-md-2 mx-auto">
+                    <hr class="clearfix w-100 d-md-none">
+                </div>
+            </div>
+            <hr>
+            <ul class="list-unstyled list-inline text-center py-2">
+                <li class="list-inline-item">
+                    <h5 class="mb-1">Tell Us What You Think!</h5>
+                </li>
+            </ul>
+            <hr>
+            <ul class="list-unstyled list-inline text-center">
+                <li class="list-inline-item">
+                    <a class="btn-floating btn-fb mx-1">
+                        <i class="fab fa-facebook-f"> </i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="btn-floating btn-tw mx-1">
+                        <i class="fab fa-twitter"> </i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="btn-floating btn-gplus mx-1">
+                        <i class="fab fa-google-plus-g"> </i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="btn-floating btn-li mx-1">
+                        <i class="fab fa-linkedin-in"> </i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="btn-floating btn-dribbble mx-1">
+                        <i class="fab fa-dribbble"> </i>
+                    </a>
+                </li>
+            </ul>
+            <div class="footer-copyright text-center py-3">© 2019 Created by: Mikhail Vishin</div>
+    </footer>
 {% endblock %}
 {% block scripts %}
     <script src="js/jquery-3.4.0.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            $(window).scroll(function () {
-                if ($(document).scrollTop() > 100) {
-                    $('.footer').addClass("show");
-                } else {
-                    $('.footer').removeClass("show");
-                }
-            });
-        });
-    </script>
 {% endblock %}<!-- CLOSE SCRIPTS -->
 </body>
 </html>
