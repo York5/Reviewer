@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block menu %}
+    <nav class="navbar custom_nav navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="{% url 'webapp:product_index' %}">Home</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    {% if perms.webapp.add_project%}
+                        <a class="nav-link new_review_btn" href="{% url 'webapp:project_add' %}">+ Add Project <span
+                                class="sr-only">(current)</span></a>
+                    {% endif %}
+                </li>
+            </ul>
+            {% include 'partial/simple_search.html' %}
+        </div>
+    </nav>
+{% endblock %}
+{% block content %}
+    <h1 class="main_header">Active Projects</h1>
+    <hr/>
+    <div class="d-flex">
+        <div class="pagination_block">
+            {% if is_paginated %}
+                {% include 'partial/pagination.html' %}
+            {% endif %}
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        {% for project in projects %}
+            {% if project.status == 'active' %}
+                <div class="card border-dark mb-3 my_card" style="width: 18rem;">
+                    <div class="card-body d-flex flex-column">
+                        <a class="card_header_link" href="{% url 'webapp:project_view' project.pk %}"><h5
+                                class="card-title card_names">{{ project.name }}</h5></a>
+                        <hr>
+                        <h6 class="card-subtitle mb-2 text-muted">
+                            Created: {{ project.created_at|date:'d.m.Y H:i:s' }}</h6>
+                        <h6 class="card-subtitle mb-2 text-muted">
+                            Updated: {{ project.updated_at|date:'d.m.Y H:i:s' }}</h6>
+                        {% if project.status == 'active' %}
+                            <h6 class="card-subtitle mb-2">Project Status: <b
+                                    class="active_status">{{ project.get_status_display }}</b></h6>
+                        {% else %}
+                            <h6 class="card-subtitle mb-2">Project Status: <b
+                                    class="closed_status">{{ project.get_status_display }}</b></h6>
+                        {% endif %}
+                        <p class="card-text">{{ project.description }}</p>
+                        <div class="card_links mt-auto row justify-content-center">
+                            {% if perms.webapp.change_project %}
+                                <a href="{% url "webapp:project_update" project.pk %}" class="edit_icon"><i
+                                        class="fas fa-pencil-alt"></i></a>
+                            {% endif %}
+                            {% if perms.webapp.delete_project %}
+                                <a href="{% url "webapp:project_delete" project.pk %}" class="card-link trash_can"><i
+                                        class="fas fa-trash-alt"></i></a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endblock %}
