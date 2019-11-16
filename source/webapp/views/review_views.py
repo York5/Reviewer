@@ -1,6 +1,7 @@
 from django.contrib.auth.mixins import PermissionRequiredMixin, UserPassesTestMixin
 from django.shortcuts import get_object_or_404, redirect
-from django.views.generic import CreateView
+from django.urls import reverse, reverse_lazy
+from django.views.generic import CreateView, UpdateView, DeleteView
 
 from webapp.forms import ProductReviewForm
 from webapp.models import Review, Product
@@ -28,16 +29,31 @@ class ReviewForProductCreateView(CreateView):
         product_pk = self.kwargs.get('pk')
         return get_object_or_404(Product, pk=product_pk)
 
-    class ReviewUpdateView(PermissionRequiredMixin, UserPassesTestMixin, UpdateView):
+
+class ReviewUpdateView(PermissionRequiredMixin, UpdateView):
     model = Review
     template_name = 'reviews/update.html'
-    form_class = IssueForm
-    context_object_name = 'issue'
-    permission_required = 'webapp.change_issue'
+    form_class = ProductReviewForm
+    context_object_name = 'review'
+    permission_required = 'webapp.change_review'
     permission_denied_message = '403 Access Denied!'
 
     def test_func(self):
-        project_users = []
-        for user in self.get_object().project.users.all():
-            project_users.append(user)
-        return self.request.user in project_users
+        self.object= self.get_review()
+        return self.request.user.has_perm('accounts.changer_review') or self.request.user.pk == self.object.author.pk
+
+    def get_review(self):
+        review_pk = self.kwargs.get('pk')
+        review = get_object_or_404(Review, pk=review_pk)
+        return review
+
+    def get_success_url(self):
+        return reverse('webapp:product_view', kwargs={'pk': self.object.pk})
+
+
+class ReviewDeleteView(PermissionRequiredMixin, DeleteView):
+    model = Review
+    template_name = 'reviews/review_delete.html'
+    success_url = reverse_lazy('webapp:index')
+    permission_required = 'webapp.delete_review'
+    permission_denied_message = '403 Access Denied!'

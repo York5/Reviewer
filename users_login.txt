@@ -1,0 +1,8 @@
+login: admin
+passwor: admin
+
+login: Moderator
+password: 123
+
+
+All usera have password: 123

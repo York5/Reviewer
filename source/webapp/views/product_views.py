@@ -14,11 +14,9 @@ class ProductIndexView(ListView):
     ordering = []
 
 
-class ProductView(PermissionRequiredMixin, DetailView):
+class ProductView(DetailView):
     template_name = 'products/product.html'
     model = Product
-    permission_required = 'webapp.view_product'
-    permission_denied_message = '403 Access Denied!'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

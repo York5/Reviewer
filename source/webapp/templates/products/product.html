@@ -31,6 +31,14 @@
                 <div class="pre">{{ review.text }}
                     <p>Product Rating: <b>{{ review.rating }}</b></p>
                 </div>
+                        {% if perms.webapp.change_product %}
+                            <a href="{% url "webapp:review_update" review.pk %}" class="edit_icon mr-5"><i
+                                    class="fas fa-pencil-alt"></i></a>
+                        {% endif %}
+                        {% if perms.webapp.delete_product %}
+                            <a href="{% url "webapp:review_delete" review.pk %}" class="card-link trash_can"><i
+                                    class="fas fa-trash-alt"></i></a>
+                        {% endif %}
             </div>
         {% empty %}
             <p>Be the first one to leave a review!</p>
